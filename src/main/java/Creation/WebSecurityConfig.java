@@ -3,6 +3,7 @@ package Creation;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
@@ -27,7 +28,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .permitAll();
     }
-
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        //Web resources
+        web.ignoring().antMatchers("/css/**");
+        web.ignoring().antMatchers("/scripts/**");
+        web.ignoring().antMatchers("/images/**");
+    }
     @Bean
     @Override
     public UserDetailsService userDetailsService() {
