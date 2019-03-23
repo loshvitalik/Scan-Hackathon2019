@@ -25,7 +25,7 @@ public class FileDownloadController {
         // Прежде всего стоит проверить, если необходимо, авторизован ли пользователь и имеет достаточно прав на скачивание файла. Если нет, то выбрасываем здесь Exception
 
         //Авторизованные пользователи смогут скачать файл
-        Path file = Paths.get(("C:/Users/ValderMann/Desktop/Scan-Hackathon2019/src/main/resources"), fileName);
+        Path file = Paths.get(("C:/Users/ban-y/Desktop/Scan-Hackathon2019/src/main/resources"), fileName);
         if (Files.exists(file)){
             response.setHeader("Content-disposition", "attachment;filename=" + fileName);
             response.setContentType("application/vnd.ms-excel");
