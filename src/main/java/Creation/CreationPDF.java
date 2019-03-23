@@ -19,11 +19,13 @@ import java.util.*;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
-public class CreationPDF  {
+public class CreationPDF {
     public static String reports;
     public String uri;
     public String namePDF;
+
     void getText() {
 
 
+    }
 }
