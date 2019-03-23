@@ -79,6 +79,13 @@
 <div th:each="file : ${files}">
 <div th:text="${file.getAbsolutePath()}"></div>
 </div>
+
+<a href="/upload" style="color: #888">
+    <div class="container-fluid d-flex justify-content-end"style="width: 95%; padding-top: 5vh">
+        <span style="font-size: 4vh">Авторизация&nbsp;&nbsp;</span>
+        <i class="fas fa-user" style="font-size: 5vh; color: #888 !important;"></i>
+    </div>
+</a>
 <div class="container-fluid" style="width: 95%">
     <div class="row">
         <div class="col-md-12">
