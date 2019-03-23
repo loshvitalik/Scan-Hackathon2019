@@ -27,7 +27,7 @@ apply plugin: 'war'
 sourceCompatibility = 1.8
 
 bootJar {
-    baseName = 'gs-serving-web-content'
+    baseName = 'gs-securing-web'
     version =  '0.1.0'
 }
 
@@ -39,6 +39,11 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile("org.springframework.boot:spring-boot-starter-web")
+    testCompile("junit:junit")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile("org.springframework.security:spring-security-test")
     compile 'com.lowagie:itext:2.1.7'
     compile 'net.sf.jasperreports:jasperreports:6.6.0'
     compile group: 'org.json', name: 'json', version: '20140107'
@@ -48,4 +53,5 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     compile("org.springframework.boot:spring-boot-devtools")
     testCompile("junit:junit")
+    compile("org.springframework.boot:spring-boot-starter-security")
 }
