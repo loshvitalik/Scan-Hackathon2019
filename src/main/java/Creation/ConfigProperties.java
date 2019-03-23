@@ -11,7 +11,7 @@ public class ConfigProperties {
     private static Properties PROPERTIES;
     static {
         try {
-
+System.out.println();
             fileInputStream = new FileInputStream(pathPDF);
             PROPERTIES = new Properties();
             PROPERTIES.load(fileInputStream);
