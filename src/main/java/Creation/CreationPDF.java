@@ -25,7 +25,7 @@ public class CreationPDF {
     public String namePDF;
 
     void getText() {
-
-
     }
+
+
 }

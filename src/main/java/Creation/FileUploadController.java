@@ -15,27 +15,26 @@ import java.io.FileOutputStream;
 public class FileUploadController {
 
     @RequestMapping(value="/upload", method=RequestMethod.GET)
-    public @ResponseBody
+    public
     String provideUploadInfo() {
-        return "Вы можете загружать файл с использованием того же URL.";
+        return "index";
     }
 
     @RequestMapping(value="/upload", method= RequestMethod.POST)
-    public @ResponseBody String handleFileUpload(@RequestParam("name") String name,
-                                                 @RequestParam("file") MultipartFile file){
+    public @ResponseBody String handleFileUpload(@RequestParam("file") MultipartFile file){
         if (!file.isEmpty()) {
             try {
                 byte[] bytes = file.getBytes();
                 BufferedOutputStream stream =
-                        new BufferedOutputStream(new FileOutputStream(new File(name + "-uploaded")));
+                        new BufferedOutputStream(new FileOutputStream(new File("C:/Users/ban-y/Desktop/Scan-Hackathon2019/src/main/resources/" + file.getOriginalFilename())));
                 stream.write(bytes);
                 stream.close();
-                return "Вы удачно загрузили " + name + " в " + name + "-uploaded !";
+                return "Вы удачно загрузили " + file.getOriginalFilename()  + " в " + file.getOriginalFilename()  + "!";
             } catch (Exception e) {
-                return "Вам не удалось загрузить " + name + " => " + e.getMessage();
+                return "Вам не удалось загрузить " + file.getOriginalFilename()  + " => " + e.getMessage();
             }
         } else {
-            return "Вам не удалось загрузить " + name + " потому что файл пустой.";
+            return "Вам не удалось загрузить " + file.getOriginalFilename()  + " потому что файл пустой.";
         }
     }
 
