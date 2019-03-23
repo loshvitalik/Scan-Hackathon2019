@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View</title>
+</head>
+<body>
+
+<tr th:each="file : ${files}">
+    <td th:text="${file.getAbsolutePath()}"></td>
+</tr>
+</body>
+</html>

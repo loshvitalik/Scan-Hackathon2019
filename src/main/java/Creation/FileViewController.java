@@ -16,6 +16,6 @@ public class FileViewController {
     String provideUploadInfo(Model model) {
         File folder = new File("src\\main\\resources\\");
         model.addAttribute("files", folder.listFiles());
-        return "index";
+        return "controller";
     }
 }
