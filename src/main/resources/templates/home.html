@@ -3,16 +3,17 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <meta name="viewport" content="target-densitydpi=device-dpi, initial-scale=1.0, user-scalable=no" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <meta name="viewport" content="target-densitydpi=device-dpi, initial-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
 
     <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />-->
-    <link th:href="@{/public/styles.css}" rel="stylesheet" />
+    <link th:href="@{/public/styles.css}" rel="stylesheet"/>
 
 
     <!-- Font Awesome -->
@@ -25,11 +26,14 @@
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
     <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.4/js/mdb.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.4/js/mdb.min.js"></script>
 
     <title>Система скан образов документов</title>
 </head>
@@ -72,22 +76,19 @@
 <!--</div>-->
 <!--</div>-->
 <!--</div>-->
-<div class="container-fluid"style="width: 95%; padding-top: 5vh">
-    <h3 th:inline="text">Вы  [[${#httpServletRequest.remoteUser}]]!</h3>
+<div class="container-fluid" style="width: 95%; padding-top: 5vh">
+    <h3 th:inline="text">Вы [[${#httpServletRequest.remoteUser}]]!</h3>
 
-</div>
-<div th:each="file : ${files}">
-    <div th:text="${file.getAbsolutePath()}"></div>
 </div>
 
 <a href="/login" style="color: #888">
-    <div class="container-fluid d-flex justify-content-end"style="width: 95%; padding-top: 5vh">
+    <div class="container-fluid d-flex justify-content-end" style="width: 95%; padding-top: 5vh">
         <span style="font-size: 4vh">Авторизация&nbsp;&nbsp;</span>
         <i class="fas fa-user" style="font-size: 5vh; color: #888 !important;"></i>
     </div>
 </a>
 <a href="/hello" style="color: #888">
-    <div class="container-fluid d-flex justify-content-end"style="width: 95%; padding-top: 5vh">
+    <div class="container-fluid d-flex justify-content-end" style="width: 95%; padding-top: 5vh">
         <span style="font-size: 4vh">Выйти&nbsp;&nbsp;</span>
         <i class="fas fa-user" style="font-size: 5vh; color: #888 !important;"></i>
     </div>
@@ -97,11 +98,11 @@
         <div class="col-md-12">
             <div class="row">
                 <div class="col-6 col-sm-4 col-md-3" style="padding: 0 10px">
-                    <div class="product-grid">
-                        <div class="product-image">
+                    <div class="product-grid" style="display: flex; flex-wrap: wrap">
+                        <div class="product-image doc-container" th:each="file : ${files}">
                             <!--<img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo9/images/img-2.jpg">-->
-                            <img class="pic-1" src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Pasport_RF.jpg" download>
-                            <a href="https://google.com" >
+                            <img class="pic-1 document" th:src="${'/public/files/' + file.getName()}" download/>
+                            <a href="https://google.com">
                                 <span class="product-new-label not-verified">Не проверено</span>
                             </a>
                             <span class="product-discount-label">14.01.19</span>
@@ -120,7 +121,8 @@
                         <a href="https://google.com">
                             <div class="product-image">
                                 <!--<img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo9/images/img-2.jpg">-->
-                                <img class="pic-1" src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Pasport_RF.jpg" download>
+                                <img class="pic-1"
+                                     src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Pasport_RF.jpg" download>
                                 <span class="product-new-label verified" style="background: limegreen">Проверено</span>
                                 <span class="product-discount-label">14.01.19</span>
                             </div>
@@ -196,9 +198,6 @@
 <!--</div>-->
 
 <!--</div>-->
-
-
-
 
 
 </body>

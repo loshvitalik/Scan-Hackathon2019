@@ -143,7 +143,17 @@ h3.h3 {
     transition:all 0.3s ease;
     margin-bottom: 15px;
 }
+div.doc-container{
+    width: 500px;
+    height:500px;
+    border:none
+}
 
+img.document{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
 @-webkit-keyframes logo-img
 {
     15%

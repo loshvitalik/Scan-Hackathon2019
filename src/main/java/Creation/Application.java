@@ -16,8 +16,8 @@ public class Application  extends SpringBootServletInitializer {
     @Bean
     public MultipartConfigElement multipartFileUploadControllerConfigElement() {
         MultipartConfigFactory factory = new MultipartConfigFactory();
-        factory.setMaxFileSize("128KB");
-        factory.setMaxRequestSize("128KB");
+        factory.setMaxFileSize("128000KB");
+        factory.setMaxRequestSize("128000KB");
         return factory.createMultipartConfig();
     }
     static { System.setProperty("logback.configurationFile", "C:/Users/PC-User/Desktop/ServerPDF/src/main/resources/"+"config.xml");}
