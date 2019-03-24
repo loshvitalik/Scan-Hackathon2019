@@ -101,7 +101,9 @@
                     <div class="product-grid">
                         <div class="product-image doc-container">
                             <!--<img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo9/images/img-2.jpg">-->
+                            <a th:href="${'/public/files/' + file.getName()}">
                             <img class="pic-1 document" th:src="${'/public/files/' + file.getName()}" download/>
+                            </a>
                             <a href="https://google.com">
                                 <span class="product-new-label not-verified">Не проверено</span>
                             </a>
