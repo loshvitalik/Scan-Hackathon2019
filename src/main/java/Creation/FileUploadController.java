@@ -1,5 +1,6 @@
 package Creation;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -20,9 +22,14 @@ public class FileUploadController {
         return "upload";
     }
 
+
+    @Autowired
+    private HttpServletRequest request;
+
+
     @RequestMapping(value="/upload", method= RequestMethod.POST)
     public @ResponseBody String handleFileUpload(@RequestParam("file") MultipartFile file){
-        if (!file.isEmpty()) {
+        if (request.isUserInRole("admin")||request.isUserInRole("moder")) {
             try {
                 byte[] bytes = file.getBytes();
                 BufferedOutputStream stream =
@@ -34,7 +41,7 @@ public class FileUploadController {
                 return "Вам не удалось загрузить " + file.getOriginalFilename()  + " => " + e.getMessage();
             }
         } else {
-            return "Вам не удалось загрузить " + file.getOriginalFilename()  + " потому что файл пустой.";
+            return "Вам не удалось загрузить " + file.getOriginalFilename()  + " потому что у вас нет доступа";
         }
     }
 
